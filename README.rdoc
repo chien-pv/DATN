@@ -1,28 +1,24 @@
-== README
+# DATN
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+# How to Install
 
-Things you may want to cover:
+Step 1: Clone repo
+```
+$ git clone https://github.com/phamvanbk11/DATN.git
 
-* Ruby version
+```
 
-* System dependencies
+Step 2: Install gem dependencies
+```
+$ bundle install
+```
 
-* Configuration
+Step 3: Install packages via Bower. We need to install bower before. See http://bower.io/ to install bower if not yet.
+```
+$ bower install
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Step 4: Run App
+```
+$ bundle exec rails s -b 0
+```
