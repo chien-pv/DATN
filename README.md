@@ -20,5 +20,5 @@ $ bower install
 
 Step 4: Run App
 ```
-$ bundle exec rails s -b 0
+$ rails s
 ```
