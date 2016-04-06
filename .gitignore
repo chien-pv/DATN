@@ -16,6 +16,9 @@ Gemfile.lock
 # Ignore vendor
 /vendor/*
 /vendor
+/tmp/cache/assets/sprockets/*
+/tmp/cache/assets/sprockets
+/log/development.log
 
 # Ignore
 /config/database.yml
