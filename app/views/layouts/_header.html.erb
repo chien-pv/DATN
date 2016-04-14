@@ -14,18 +14,20 @@
     <%= csrf_meta_tags %>
     <!-- Favicon -->
     <link rel="shortcut icon" href="<%= asset_path "favicon.png" %>" type="image/x-icon" />
-  
-    <link href="jquery-ui.css" rel="stylesheet">
-    <link href="dataTables.jqueryui.min.css" rel="stylesheet">
-    <link href="responsive.jqueryui.min.css" rel="stylesheet">
-    <script type="text/javascript" language="javascript" src="jquery-1.11.3.min.js"></script>
-    <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
-    <script type="text/javascript" language="javascript" src="dataTables.jqueryui.min.js"></script>
-    <script type="text/javascript" language="javascript" src="dataTables.responsive.min.js"></script>
-    <script type="text/javascript" language="javascript" src="responsive.jqueryui.min.js"></script>
+    <style>
+      body {
+        font-size: 16px;
+        font-family: 'Noto Sans', sans-serif;
+        color: #5e5e5e;
+      }
+
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Arvo', serif;
+        color: #3f3f3f;
+      }
+    </style>
     <script>
       $(document).ready(function() {
-        alert("sjskjfkd");
           $('#example').DataTable({
           responsive: {
                   details: {
@@ -49,19 +51,6 @@
         });
       } );
     </script>
-
-    <style>
-      body {
-        font-size: 16px;
-        font-family: 'Noto Sans', sans-serif;
-        color: #5e5e5e;
-      }
-
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Arvo', serif;
-        color: #3f3f3f;
-      }
-    </style>
 
   </head>
 
