@@ -30,6 +30,41 @@
     <link rel="stylesheet" href="shortcodes.css" />
     <link rel="stylesheet" href="responsive.css" />
 
+    <link href="jquery-ui.css" rel="stylesheet">
+    <link href="dataTables.jqueryui.min.css" rel="stylesheet">
+    <link href="responsive.jqueryui.min.css" rel="stylesheet">
+    <script type="text/javascript" language="javascript" src="jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" language="javascript" src="jquery.dataTables.min.js"></script>
+    <script type="text/javascript" language="javascript" src="dataTables.jqueryui.min.js"></script>
+    <script type="text/javascript" language="javascript" src="dataTables.responsive.min.js"></script>
+    <script type="text/javascript" language="javascript" src="responsive.jqueryui.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        alert("sjskjfkd");
+          $('#example').DataTable({
+          responsive: {
+                  details: {
+                      renderer: function ( api, rowIdx, columns ) {
+                          var data = $.map( columns, function ( col, i ) {
+                              return col.hidden ?
+                                  '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
+                                      '<td>'+col.title+':'+'</td> '+
+                                      '<td>'+col.data+'</td>'+
+                                  '</tr>' :
+                                  '';
+                          } ).join('');
+       
+                          return data ?
+                              $('<table/>').append( data ) :
+                              false;
+                      }
+                  }
+              }
+          
+        });
+      } );
+    </script>
+
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 
