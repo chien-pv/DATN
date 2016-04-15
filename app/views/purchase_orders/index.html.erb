@@ -10,17 +10,21 @@
       <th>Ngày giao hàng</th>
       <th>Nhà cung cấp</th>
       <th>Số tiền</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
+  <% @purchase_orders.each do |purchase_order|%>
       <tr>
-          <td>Tiger</td>
-          <td>Nixon</td>
-          <td>System Architect</td>
-          <td>Edinburgh</td>
-          <td>61</td>
-          <td>2011/04/25</td>
+          <td><%= purchase_order.Status%></td>
+          <td><%= purchase_order.RefDate.strftime("%d-%m-%Y")%></td>
+          <td><%= purchase_order.RefNo%></td>
+          <td><%= purchase_order.ReceiveDate.strftime("%d-%m-%Y")%></td>
+          <td><%= purchase_order.AccountObjectName%></td>
+          <td><%= purchase_order.TotalAmount%></td>
+          <td><%= button_to "Chi tiết", purchase_order_path(purchase_order.RefID), method: :get%></td>
       </tr>
+      <%end%>
   </tbody>
 </table>
 </div>
