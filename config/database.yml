@@ -12,3 +12,7 @@ default: &default
 development:
   <<: *default
   database: misa_development
+
+production:
+  <<: *default
+  database: misa_development
