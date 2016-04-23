@@ -29,7 +29,7 @@
     <script>
       $(document).ready(function() {
           $('#example').DataTable({
-          responsive: {
+            responsive: {
                   details: {
                       renderer: function ( api, rowIdx, columns ) {
                           var data = $.map( columns, function ( col, i ) {
@@ -46,10 +46,18 @@
                               false;
                       }
                   }
-              }
-          
+            }
         });
-      } );
+        $("#items").selectr({
+            title: 'Chon mat hang cho NCC',
+            placeholder: 'Ten mat hang'
+        });
+      });
+      function check(){
+          var i = $("#items").val() || [];
+          alert(i);
+          document.getElementById("demo").innerHTML =i[0];
+      }
     </script>
 
   </head>

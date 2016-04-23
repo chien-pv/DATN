@@ -1,0 +1,15 @@
+<section class="content">
+  <div class="wrapper">
+    <h1 align="center">Chọn mặt hàng</h1>
+    <div class="col-md-8">
+      <h4>Multi-select</h4>
+      <%= form_tag(insert_items_path, method: :get) do %>
+
+        <%= select_tag 'list_items', options_for_select(@items.collect{ |u| [u.InventoryItemName, u.InventoryItemCode] }), multiple: true , id: :items%>
+         <%= submit_tag( "SUBMIT" ) %>
+      <% end %>
+    </div>
+    <button onclick="check()">check</button>
+    <p id="demo"></p>
+  </div>
+</section>
