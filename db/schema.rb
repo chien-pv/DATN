@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160413131915) do
+ActiveRecord::Schema.define(version: 20160419125825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "container_types", force: :cascade do |t|
+    t.string "container_type_code"
+    t.string "container_type_name"
+    t.float  "volume"
+    t.float  "weight"
+  end
 
   create_table "high_scores", force: :cascade do |t|
     t.string   "game"
@@ -27,8 +34,11 @@ ActiveRecord::Schema.define(version: 20160413131915) do
     t.string   "item_code"
     t.float    "volume"
     t.float    "weight"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "supplier_id"
+    t.string   "supplier_item_code"
+    t.string   "item_id"
   end
 
   create_table "purchase_order", force: :cascade do |t|

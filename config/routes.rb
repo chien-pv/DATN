@@ -1,8 +1,23 @@
 Rails.application.routes.draw do
+  resources :items do
+    collection do
+      get :items_suppliers
+      get :insert
+      get :suppliers
+    end
+  end
+
+
   get 'purchase_orders/index'
 
   resources :inventory_items
-  resources :purchase_orders
+  resources :purchase_orders do
+    collection do 
+      get :get_data
+    end
+  end
+
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
