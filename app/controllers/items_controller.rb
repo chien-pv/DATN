@@ -2,15 +2,24 @@ class ItemsController < ApplicationController
   def index
   end
 
-  def items_suppliers
+  def show
+    @supplier = AccountObject.where(AccountObjectID: params[:id])
     @items = InventoryItem.all
   end
 
   def insert
      #binding.pry
-    @list_items = params[:list_items]
+    @list_items = InventoryItem.where(InventoryItemCode: params[:list_items])
     @list_items.each do |item|
-      
+      params_create = {item_id: item.InventoryItemID,
+                       item_code: item.InventoryItemCode,
+                       supplier_id: params[:supplier_id]}
+      Item.create(params_create)
     end
+    redirect_to item_path(params[:supplier_id])
+  end
+
+  def suppliers
+    @suppliers = AccountObject.all
   end
 end
