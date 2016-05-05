@@ -1,28 +1,28 @@
 <section class="content">
   <div class="wrapper">
-    <h1 align="center">Mua Hang</h1>
+    <div class="page-header">
+      <h1 align="center">Nhà Cung Cấp</h1>
+    </div>
     <table id="example" class="display responsive nowrap" cellspacing="0" width="100%">
       <thead>
         <tr>
-          <th>Tình trạng</th>
-          <th>Ngày đơn hàng</th>
-          <th>Số đơn hàng</th>
-          <th>Ngày giao hàng</th>
-          <th>Nhà cung cấp</th>
-          <th>Số tiền</th>
+          <th>Mã NCC</th>
+          <th>Tên NCC</th>
+          <th>Địa chỉ</th>
+          <th>Số điện thoại</th>
+          <th>Email</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <% @purchase_orders.each do |purchase_order|%>
+        <% @suppliers.each do |supplier|%>
           <tr>
-            <td><%= purchase_order.Status%></td>
-            <td><%= purchase_order.RefDate.strftime("%d-%m-%Y")%></td>
-            <td><%= purchase_order.RefNo%></td>
-            <td><%= purchase_order.ReceiveDate.strftime("%d-%m-%Y")%></td>
-            <td><%= purchase_order.AccountObjectName%></td>
-            <td><%= purchase_order.TotalAmount%></td>
-            <td><%= button_to "Chi tiết", purchase_order_path(purchase_order.RefID), method: :get%></td>
+            <td><%= supplier.AccountObjectCode%></td>
+            <td><%= supplier.AccountObjectName%></td>
+            <td><%= supplier.Address%></td>
+            <td><%= supplier.Tel%></td>
+            <td><%= supplier.EmailAddress%></td>
+            <td><%= button_to "Chi tiết", item_path(supplier.AccountObjectID), method: :get%></td>
           </tr>
         <%end%>
       </tbody>

@@ -49,15 +49,17 @@
             }
         });
         $("#items").selectr({
-            title: 'Chon mat hang cho NCC',
-            placeholder: 'Ten mat hang'
+            title: 'Danh sách mặt hàng',
+            placeholder: 'Tên mặt hàng',
+        });
+        $('.list-group-item').click(function() {
+            var x = $(this).find(".option-name").text();
+            $('.panel-body-selected').append("<p>- "+x+"</p><br>");
         });
       });
-      function check(){
-          var i = $("#items").val() || [];
-          alert(i);
-          document.getElementById("demo").innerHTML =i[0];
-      }
+
+      
+      
     </script>
 
   </head>
