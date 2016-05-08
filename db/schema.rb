@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160423040311) do
+ActiveRecord::Schema.define(version: 20160507152430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,6 +41,29 @@ ActiveRecord::Schema.define(version: 20160423040311) do
     t.string   "supplier_item_code"
     t.string   "item_id"
     t.datetime "deleted_at"
+  end
+
+  create_table "map_item", force: :cascade do |t|
+    t.string   "ItemID"
+    t.string   "map_purchase_id"
+    t.integer  "quantity"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  create_table "map_purchase", force: :cascade do |t|
+    t.string   "RefID"
+    t.datetime "date_map"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "map_purchases", force: :cascade do |t|
+    t.string   "RefID"
+    t.string   "map_id"
+    t.date     "date_map"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "purchase_order", force: :cascade do |t|
