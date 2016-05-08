@@ -52,13 +52,57 @@
             title: 'Danh sách mặt hàng',
             placeholder: 'Tên mặt hàng',
         });
-        $('.list-group-item').click(function() {
-            var x = $(this).find(".option-name").text();
-            $('.panel-body-selected').append("<p>- "+x+"</p><br>");
+        $('.selected_item').map(function() {
+            var si = this.value;
+            $("#items").find("option").each(function(){
+              if(si == $(this).val()){
+                var x = $(this).text();
+                $('.list-group-item').each(function(){
+                  if(x == $(this).find('.option-name').text()){
+                    $(this).addClass("selected");
+                    $('.panel-body-selected').append("<p id="+si+">- "+x+"</p>");
+                    return false;
+                  }
+                });
+              }
+            });
+        });
+        $('.add-remove').click(function() {
+            var x = $(this).siblings(".option-name").text();
+              if($(this).parent('.list-group-item').hasClass("selected")){
+                $("#items").find("option").each(function(){
+                  if(x == $(this).text()){
+                    $("#"+$(this).val()).remove();
+                  }
+                });
+                
+              }
+              else{
+                $("#items").find("option").each(function(){
+                  if(x == $(this).text()){
+                    $('.panel-body-selected').append("<p id="+$(this).val()+">- "+x+"</p>");
+                    return false;
+                  }
+                });
+              }
+            
+        });
+        $('.option-name').click(function(){
+            $('.panel-body-selected').find('p').remove();
+            var x = $(this).text();
+            if((!$(this).parent('.list-group-item').hasClass("selected")) || ($(this).parent('.list-group-item').siblings().hasClass("selected"))){
+                $("#items").find("option").each(function(){
+                  if(x == $(this).text()){
+                    $('.panel-body-selected').append("<p id="+$(this).val()+">- "+x+"</p>");
+                    return false;
+                  }
+                });
+            }
+        });
+        $('.reset').click(function(){
+          $('.panel-body-selected').find('p').remove();
         });
       });
-
-      
       
     </script>
 

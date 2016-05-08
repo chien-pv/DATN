@@ -5,11 +5,13 @@ class ItemsController < ApplicationController
   def show
     @supplier = AccountObject.where(AccountObjectID: params[:id])
     @items = InventoryItem.all
+    @selected_items = @supplier[0].item
+    #binding.pry
   end
 
   def insert
      #binding.pry
-    @list_items = InventoryItem.where(InventoryItemCode: params[:list_items])
+    @list_items = InventoryItem.where(InventoryItemID: params[:list_items])
     @list_items.each do |item|
       params_create = {item_id: item.InventoryItemID,
                        item_code: item.InventoryItemCode,
