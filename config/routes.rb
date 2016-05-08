@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  
+  resources :show_map
+
   resources :items do
     collection do
       get :items_suppliers
@@ -7,6 +10,11 @@ Rails.application.routes.draw do
     end
   end
 
+ resources :map_order do
+  collection do
+    post :creates
+  end
+ end
 
   get 'purchase_orders/index'
 
